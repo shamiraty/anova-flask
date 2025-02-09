@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Way ANOVA Analysis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <style>
+        /* Apply Google Font to the entire site */
+        body {
+            font-size: 18px; /* Base font size */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="#">ANOVA Analysis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://wa.me/+255675839840" target="_blank">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('tutorials') }}">Tutorials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Main Content -->
+<div class="container mt-2">
+    <!-- Card for Machine Learning Video Links -->
+    <div class="card mb-4">
+        <div class="card-header bg-light text-primary">
+            <h5>Machine Learning Resources</h5>
+        </div>
+        <div class="card-body">
+            <!-- Existing Sections -->
+            <h4>Predicting High School Subjects to Program Recommendation</h4>
+            <p><strong>Random-Forest ML</strong></p>
+            <p><strong>Using SQL-LITE Database, Python, HTML, JavaScript, Bootstrap</strong></p>
+            <div class="list-group">
+                <a href="https://github.com/shamiraty/random-forest-SQL/" class="list-group-item list-group-item-action">GitHub 1 STREAMLIT</a>
+                <a href="https://random-forest-sql.streamlit.app/" class="list-group-item list-group-item-action">Demo 1 STREAMLIT</a>
+                <a href="https://github.com/shamiraty/random-forest-flask" class="list-group-item list-group-item-action">Git 2 FLASK FRAMEWORK</a>
+                <a href="https://projectforest.pythonanywhere.com/" class="list-group-item list-group-item-action">Demo 2 FLASK FRAMEWORK</a>
+            </div>
+
+            <h4 class="mt-4">Machine Learning Classification Models</h4>
+            <p><strong>High School Subject to Program Recommendation with CSV & MySQL Databases</strong></p>
+            <div class="list-group">
+                <a href="https://github.com/shamiraty/Random-Forest-" class="list-group-item list-group-item-action">GitHub</a>
+                <a href="https://github.com/shamiraty/Random-Forest-" class="list-group-item list-group-item-action">Demo</a>
+            </div>
+
+            <!-- New Tutorial Sections -->
+            <h4 class="mt-4">K-Means Clustering</h4>
+            <p><strong>Customer Segmentation Using Machine Learning</strong></p>
+            <div class="list-group">
+                <a href="https://github.com/shamiraty/k-means" class="list-group-item list-group-item-action">GitHub</a>
+                <a href="https://k-means-algorithm.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+            </div>
+
+            <h4 class="mt-4">K-Nearest Neighbors Classification</h4>
+            <p><strong>With MySQL Integration</strong></p>
+            <div class="list-group">
+                <a href="https://github.com/shamiraty/classification_knn" class="list-group-item list-group-item-action">GitHub</a>
+                <a href="https://k-nearest.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+                <a href="https://www.youtube.com/watch?v=q1SD6yBmAHw" class="list-group-item list-group-item-action">Video Tutorial</a>
+            </div>
+
+            <h4 class="mt-4">Quantitative Research Using ML</h4>
+            <p><strong>Estimating Population Means</strong></p>
+            <div class="list-group">
+                <a href="https://github.com/shamiraty/research-population-estimation" class="list-group-item list-group-item-action">GitHub</a>
+                <a href="https://population-mean-estimation-theory.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+                <a href="https://www.youtube.com/watch?v=nu3DOvVLFC8" class="list-group-item list-group-item-action">Video Tutorial</a>
+            </div>
+
+            <!-- Continue adding remaining sections following the same pattern -->
+            <!-- Data Collection Pipeline -->
+            <h4 class="mt-4">Data Collection & Preparation Pipeline</h4>
+            <p><strong>Exploration, Cleaning, and Validation</strong></p>
+            <div class="list-group">
+                <a href="https://github.com/shamiraty/data-collection-and-cleaning-" class="list-group-item list-group-item-action">GitHub</a>
+                <a href="https://open-sciences.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+                <a href="https://www.youtube.com/watch?v=vSlRljRFaLs" class="list-group-item list-group-item-action">Video Tutorial</a>
+            </div>
+
+            <!-- Outlier Detection -->
+            <h4 class="mt-4">Outlier Detection in ML</h4>
+            <p><strong>Analyzing Data Quality</strong></p>
+            <div class="list-group">
+                <a href="https://github.com/shamiraty/outliers-python" class="list-group-item list-group-item-action">GitHub</a>
+                <a href="https://outliers.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+                <a href="https://www.youtube.com/watch?v=ZcjwfsG56Js" class="list-group-item list-group-item-action">Video Tutorial</a>
+            </div>
+
+            <!-- ... (keep previous sections unchanged) ... -->
+
+<!-- Continue adding tutorial sections -->
+<h4 class="mt-4">Statistical Analysis of Grouped Data</h4>
+<p><strong>For Machine Learning Models</strong></p>
+<div class="list-group">
+    <a href="https://github.com/shamiraty/grouped-data-analysis-python" class="list-group-item list-group-item-action">GitHub 1</a>
+    <a href="https://business-intelligent.streamlit.app/" class="list-group-item list-group-item-action">Demo 1</a>
+    <a href="https://youtu.be/VKZiBlFzG7Q" class="list-group-item list-group-item-action">Video 1</a>
+    <a href="https://github.com/shamiraty/grouped-data-analysis-python" class="list-group-item list-group-item-action">GitHub 2</a>
+    <a href="https://openstatistics.pythonanywhere.com/" class="list-group-item list-group-item-action">Demo 2</a>
+    <a href="https://youtu.be/P9WA1d2kN-M" class="list-group-item list-group-item-action">Video 2</a>
+</div>
+
+<h4 class="mt-4">Statistical Analysis of Ungrouped Data</h4>
+<p><strong>For Machine Learning Insights</strong></p>
+<div class="list-group">
+    <a href="https://github.com/shamiraty/business-intelligent" class="list-group-item list-group-item-action">GitHub</a>
+    <a href="https://business-intelligent.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+    <a href="https://youtu.be/nzAJkMIOUbM" class="list-group-item list-group-item-action">Video</a>
+</div>
+
+<h4 class="mt-4">Logistic Regression in Quantitative Research</h4>
+<p><strong>Machine Learning Modeling</strong></p>
+<div class="list-group">
+    <a href="https://github.com/shamiraty/Quantitative-Research-Logistic-Regression" class="list-group-item list-group-item-action">GitHub</a>
+    <a href="https://open-findings.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+    <a href="https://www.youtube.com/watch?v=WV5WhbeJ1TA" class="list-group-item list-group-item-action">Video</a>
+</div>
+
+<h4 class="mt-4">Machine Learning Query Optimization</h4>
+<p><strong>Python Query Operations</strong></p>
+<div class="list-group">
+    <a href="https://github.com/shamiraty/python-query-operations" class="list-group-item list-group-item-action">GitHub</a>
+    <a href="https://python-query.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+    <a href="https://www.youtube.com/watch?v=n6-5l7dzSlk" class="list-group-item list-group-item-action">Video</a>
+</div>
+
+<h4 class="mt-4">Data Analytics & Predictive Modeling</h4>
+<p><strong>KPI, Business Trends & Forecasting</strong></p>
+<div class="list-group">
+    <a href="https://github.com/shamiraty/open-streamlit-projects" class="list-group-item list-group-item-action">GitHub 1</a>
+    <a href="https://open-projects.streamlit.app/" class="list-group-item list-group-item-action">Demo 1</a>
+    <a href="https://github.com/shamiraty/streamlit-dashboard-descriptive-analytics-with-mysql-no2" class="list-group-item list-group-item-action">GitHub 2</a>
+    <a href="https://intelligent-force.streamlit.app/" class="list-group-item list-group-item-action">Demo 2</a>
+    <a href="https://www.youtube.com/watch?v=YkPxL-XLM7I" class="list-group-item list-group-item-action">Video</a>
+</div>
+
+<h4 class="mt-4">Percentile Analysis & ML Models</h4>
+<p><strong>Five-Number Summary and Categorical Data</strong></p>
+<div class="list-group">
+    <a href="https://github.com/shamiraty/numbersummary_percentiles" class="list-group-item list-group-item-action">GitHub</a>
+    <a href="https://shamiraty-numbersummary-percentiles-main-bng7ov.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+    <a href="https://www.youtube.com/watch?v=U7vf-DB_KmQ" class="list-group-item list-group-item-action">Video</a>
+</div>
+
+<h4 class="mt-4">Business Location Analysis</h4>
+<p><strong>Geo-Referencing and Machine Learning Insights</strong></p>
+<div class="list-group">
+    <a href="https://github.com/shamiraty/streamlit-mapping-business-location-by-map" class="list-group-item list-group-item-action">GitHub</a>
+    <a href="https://open-analytics.streamlit.app/" class="list-group-item list-group-item-action">Demo</a>
+    <a href="https://www.youtube.com/watch?v=RRZ4l6JeNGI" class="list-group-item list-group-item-action">Video</a>
+</div>
+
+ <!-- Button Group for Contact Information -->
+
+ <div class="d-flex justify-content-center">
+
+    <div class="btn-group">
+
+        <a href="https://wa.me/255675839840" class="btn btn-success" target="_blank">WhatsApp</a>
+
+        <a href="mailto:shamiraty@example.com" class="btn btn-primary">Email</a>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
