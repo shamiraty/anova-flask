@@ -7,11 +7,13 @@ import plotly.graph_objects as go
 app = Flask(__name__)
 
 # Real-world health dataset
+# Real-world health dataset: Comparing treatment methods and patient recovery rates
 data = {
-    'Treatment Method': ['A'] * 10 + ['B'] * 10 + ['C'] * 10,
+    'Treatment Method': ['A']*10 + ['B']*10 + ['C']*10,
     'Recovery Rate (%)': [65, 70, 68, 75, 72, 74, 78, 71, 69, 73, 80, 85, 82, 88, 90, 87, 83, 86, 84, 89, 55, 60, 58, 62, 59, 57, 61, 63, 56, 54]
 }
 df = pd.DataFrame(data)
+#df = pd.read_csv('dataset.csv')
 
 # Group the data by Treatment Method
 grouped = [df[df['Treatment Method'] == method]['Recovery Rate (%)'] for method in ['A', 'B', 'C']]
