@@ -44,20 +44,25 @@ def index():
         'C': df[df['Treatment Method'] == 'C']
     }
 
-    # Calculate means for each group
-    means = {method: data['Recovery Rate (%)'].mean() for method, data in methods_data.items()}
+     # Calculate means for each group
+    means = {method: round(data['Recovery Rate (%)'].mean(), 2) for method, data in methods_data.items()}
 
-     # Create Pie Chart with outside labels
-    fig_pie = go.Figure(data=[go.Pie(labels=list(means.keys()), values=list(means.values()),
-                                 marker_colors=['skyblue', 'lightcoral', 'lightgreen'],
-                                 textinfo='percent',  # Show percentages
-                                 insidetextorientation='radial')]) #, #Outside text
-    fig_pie.update_layout(title='Distribution of Mean Recovery Rates',
-                          uniformtext_minsize=12, uniformtext_mode='hide') # Adjust text size as needed
-    pie_graph_html = fig_pie.to_html(include_plotlyjs=False)
+    # Calculate the overall mean
+    overall_mean = round(df['Recovery Rate (%)'].mean(), 2)
 
+    # Calculate the percentage of overall mean
+    mean_percentages = {method: round((mean / overall_mean) * 100, 2) for method, mean in means.items()}
 
-    return render_template('index.html', f_statistic=f_statistic, p_value=p_value_display, result=result, methods_data=methods_data, pie_graph_html=pie_graph_html)
+    return render_template(
+        'index.html',
+        f_statistic=f_statistic,
+        p_value=p_value_display,
+        result=result,
+        methods_data=methods_data,
+        means=means,
+        overall_mean=overall_mean,
+        mean_percentages=mean_percentages
+    )
 
 
 @app.route('/tutorials')
