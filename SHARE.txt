@@ -1,0 +1,26 @@
+*MACHINE LEARNING & SCIENTIFIC RESEARCH USING PROGRAMMING LANGUAGES*
+
+*ONE-WAY ANOVA TEST FOR HEALTH DATA ANALYSIS*
+
+_Key Components:_
+
+- Flask (Web Framework)
+- CSV (Data Handling)
+- HTML & Bootstrap (Web UI)
+- ANOVA Test (Statistical Analysis)
+- P-Value Interpretation (Hypothesis Testing)
+
+_Key Steps:_
+
+- Loaded health data from a CSV file
+- Grouped data by treatment methods (A, B, C)
+- Performed a One-Way ANOVA test to compare recovery rates
+- Rounded and formatted statistical values for better readability
+- Interpreted results based on hypothesis testing
+- Displayed findings on a web interface
+
+demo
+https://anova.pythonanywhere.com/
+
+git
+https://github.com/shamiraty/anova-flask

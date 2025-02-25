@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Disease Clustering Results</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link href="{{ url_for('static', filename='bootstrap/css/theme7.css') }}" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<!-- Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+
+<!-- Include jQuery (required for DataTables) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include DataTables JS -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<!-- DataTables Bootstrap Integration CSS -->
+<link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+
+</head>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+        }
+
+        h1, h2 {
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .container-fluid {
+            max-width: 100%;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin-top: 50px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+      
+
+        .btn-secondary:hover {
+            background-color: #455a64;
+            border-color: #455a64;
+        }
+
+
+
+        .badge-pill {
+            padding: 8px 20px;
+        }
+
+
+        .form-inline {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .select2-container .select2-selection--single {
+            height: 38px;
+            padding-left: 10px;
+            font-size: 16px;
+        }
+
+        .table-responsive {
+            margin-top: 20px;
+        }
+
+        /* Smooth transition for form fields and buttons */
+        .form-control, .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        /* Customize Go Back Button */
+        .text-center a.btn-secondary {
+            font-size: 18px;
+            padding: 12px 25px;
+            background-color: #607d8b;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="container">
+            <h1 class="my-5 text-center text-primary">Clustering and Analysis Results</h1>
+
+            <!-- Filter Information -->
+            {% if location_filter %}
+                <h4 class="text-center text-primary">Showing results for: <strong>{{ location_filter }}</strong></h4>
+            {% else %}
+                <h4 class="text-center text-primary">Showing results for all locations</h4>
+            {% endif %}
+
+            <!-- Age Group Distribution -->
+            <h2 class="my-4 text-primary">Age Group Distribution</h2>
+            <ul class="list-group">
+                {% for age_group, count in age_groups.items() %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Age Group: <strong>{{ age_group }}</strong>
+                        <span class="badge badge-primary bg-primary badge-pill">{{ count }} Patients</span>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <!-- Clustering Results -->
+            <h2 class="my-4 text-primary">Patient Data Sample</h2>
+            <p>This table provides a sample of the generated patient dataset, including assigned diseases, symptoms, treatments, and environmental factors.</p>
+            <div class="table-responsive">
+                {{ tables[0]|safe }}
+            </div>
+
+            <h2 class="my-4 text-primary">Encoded Data Used for Clustering</h2>
+            <p>The dataset has been encoded for clustering. Non-numeric factors such as Water Quality, Transport Crowding, Weather, and Waste Disposal have been converted into numerical values for analysis.</p>
+            <div class="table-responsive">
+                {{ tables[1]|safe }}
+            </div>
+
+            <h2 class="my-4 text-primary">Disease and Treatment Clustering</h2>
+            <p>
+                K-Means clustering was applied to categorize patients based on disease and treatment patterns. 
+                Patients with similar characteristics have been grouped together for further analysis.
+            </p>
+
+            <!-- Classification Report -->
+            <h2 class="my-4 text-primary">Machine Learning Model Performance</h2>
+            <p>
+                A Random Forest model was trained to predict diseases based on environmental and personal health factors. 
+                Below is the classification report showing the model's accuracy, precision, recall, and F1-score.
+            </p>
+            <div class="table-responsive">
+                {{ tables[2]|safe }}
+            </div>
+
+            <!-- Go Back Button -->
+            <div class="text-center my-4">
+                <a href="/" class="btn btn-lg btn-secondary"><i class="fas fa-arrow-left"></i> Go Back</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <!-- Initialize Select2 -->
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2 for dropdowns if needed
+            $('#location').select2();
+        });
+    </script>
+
+    <!-- Initialize DataTable -->
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTables on all tables
+            $('table').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+
+</body>
+
+</html>
