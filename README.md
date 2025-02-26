@@ -4,6 +4,35 @@
 
 # One-Way ANOVA Analysis Documentation
 
+<img src="https://github.com/user-attachments/assets/90e6bb44-455c-4079-9a4d-59feadce6fdb" alt="logo7" width="100" height="100" />
+
+- **Location**: Dodoma, Tanzania
+- **Email**: [sashashamsia@gmail.com](mailto:sashashamsia@gmail.com)
+- **WhatsApp**: [+255675839840](https://wa.me/255675839840)
+- **Demo**: [Online](https://clinicaltreatment.pythonanywhere.com/)
+  <!--- **Youtube**: [Videos](https://www.youtube.com/channel/UCjepDdFYKzVHFiOhsiVVffQ)-->
+
+| Icon | Rank | Professional Target Audience                                |
+|------|------|------------------------------------------------------------|
+| 🔬  | 1    | Healthcare Researchers (Epidemiologists, Clinical Researchers) |
+| 🩺  | 2    | Physicians (General Practitioners and Specialists)            |
+| 🏛️  | 3    | Public Health Officials (Health Department Personnel, Policy Makers) |
+| 🏢  | 4    | Hospital Administrators                                      |
+| 👩‍⚕️ | 5    | Nurses                                                     |
+| 📊  | 6    | Data Analysts in Healthcare                                   |
+| 👨‍💼 | 7    | Medical Directors                                          |
+| 💊  | 8    | Pharmacists                                                 |
+| 🏥  | 9    | Clinic Administrators                                        |
+| 🎓  | 10   | Medical Educators (Professors of medicine)                   |
+
+## Disclaimer
+
+> The patient records used to train and test the **Symptom-Matcher AI** model are **not real patient data**. They are **fictitious data** that have been generated for educational purposes only. These records have no connection to any actual individuals or real-life medical conditions. 
+
+> The diseases and symptoms displayed in the application are **for learning and demonstration purposes**. They do not represent actual medical diagnoses and should not be interpreted as such. The use of these simulated cases is intended solely for academic and training purposes.
+
+> This application and its content are not intended to diminish or disrespect the real-world medical field, institutions, or individuals. The information presented is purely hypothetical and should not be used for making medical decisions. The primary goal of this project is to provide a platform for learning and development in the field of machine learning and healthcare technology.
+
 ## Introduction
 This project is a Flask-based web application that performs a One-Way ANOVA analysis on a real-world health dataset. The dataset compares different treatment methods and their respective patient recovery rates. The application reads the dataset, processes the data, and performs a statistical test to determine if there are significant differences in recovery rates among treatment methods.
 
