@@ -9,7 +9,7 @@
 - **Location**: Dodoma, Tanzania
 - **Email**: [sashashamsia@gmail.com](mailto:sashashamsia@gmail.com)
 - **WhatsApp**: [+255675839840](https://wa.me/255675839840)
-- **Demo**: [Online](https://clinicaltreatment.pythonanywhere.com/)
+- **Demo**: [Online](https://anova.pythonanywhere.com/)
   <!--- **Youtube**: [Videos](https://www.youtube.com/channel/UCjepDdFYKzVHFiOhsiVVffQ)-->
 
 | Icon | Rank | Professional Target Audience                                |
