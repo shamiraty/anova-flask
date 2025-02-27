@@ -4,10 +4,4 @@ https://anova.pythonanywhere.com/
 git
 https://github.com/shamiraty/anova-flask
 
-pythonanywhere
-shamirisaidiselemani@gmail.com
-dodomamoja.1
-username:anova  au email
-
-------------------------------------
 
